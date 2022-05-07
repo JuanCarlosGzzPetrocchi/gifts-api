@@ -19,13 +19,14 @@ module V1
 
     def update
       if @order_validator.update_errors.blank?
+        # Destroying and recreating the relationships can be inefficient when dealing with a large amount relationships
         @order.order_recipients.destroy_all
         @order.order_gifts.destroy_all
         @order.recipients << find_recipients
         @order.gifts << find_gifts
         render json: @order, status: 200, serializer: OrdersSerializer
       else
-        render json: @order_validator.update_errors, status: 400
+        render json: { errors: @order_validator.update_errors }, status: 400
       end
     end
 
@@ -34,7 +35,7 @@ module V1
         @order.update(workflow_status: :order_cancelled)
         render json: { message: I18n.t('.orders_controller.order_cancelled')}, status: 200
       else
-        render json: @order_validator.cancel_errors, status: 400
+        render json: { errors: @order_validator.cancel_errors }, status: 400
       end
     end
 
@@ -44,7 +45,7 @@ module V1
         OrderMailer.order_shipped(order_id: @order.id)
         render json: { message: I18n.t('.orders_controller.order_shipped')}, status: 200
       else
-        render json: @order.ship_errors, status: 400
+        render json: { errors: @order.ship_errors }, status: 400
       end
     end
 

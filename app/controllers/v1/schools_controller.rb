@@ -8,7 +8,7 @@ module V1
       if school.save
         render json: school, status: 200, serializer: SchoolsSerializer
       else
-        render json: school.errors, status: 400
+        render json: { errors: school.errors }, status: 400
       end
     end
 
@@ -16,7 +16,7 @@ module V1
       if @school.update(permitted_params)
         render json: @school, status: 200, serializer: SchoolsSerializer
       else
-        render json: @school.errors, status: 400
+        render json: { errors: @school.errors }, status: 400
       end
     end
 
@@ -24,7 +24,7 @@ module V1
       if @school.destroy
         render json: { message: I18n.t('.schools_controller.school_deleted') }, status: 200
       else
-        render json: @school.errors, status: 400
+        render json: { errors: @school.errors }, status: 400
       end
     end
 

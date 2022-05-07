@@ -9,7 +9,7 @@ module V1
       if recipient.save
         render json: recipient, status: 200, serializer: RecipientsSerializer
       else
-        render json: recipient.errors, status: 400
+        render json: { errors: recipient.errors }, status: 400
       end
     end
 
@@ -17,7 +17,7 @@ module V1
       if @recipient.update(permitted_params)
         render json: @recipient, status: 200, serializer: RecipientsSerializer
       else
-        render json: @recipient.errors, status: 400
+        render json: { errors: @recipient.errors }, status: 400
       end
     end
 
@@ -25,7 +25,7 @@ module V1
       if @recipient.destroy
         render json: { message: I18n.t('.recipients_controller.recipient_deleted')}, status: 200
       else
-        render json: @recipient.errors, status: 400
+        render json: { errors: @recipient.errors }, status: 400
       end
     end
 
