@@ -17,6 +17,19 @@ en:
               taken: Recipient name taken.
             address:
               blank: Recipient address cannot be blank.
+    attributes:
+      gift:
+        gift_type:
+          mug: Mug
+          t_shirt: T-shirt
+          hoodie: Hoodie
+          sticker: Sticker
+      order:
+        workflow_status:
+          order_received: Order received
+          order_processing: Order processing
+          order_shipped: Order shipped
+          order_cancelled: Order cancelled
   schools_controller:
     school_not_found: School not found.
     school_deleted: School deleted.

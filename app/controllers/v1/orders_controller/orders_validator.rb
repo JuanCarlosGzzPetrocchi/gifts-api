@@ -49,7 +49,7 @@ module V1
       end
 
       def recipient_amount
-        @errors[:recipients_amount] = I18n.t('.orders_validator.too_many_recipients') if @recipient_ids.size > 20
+        @errors[:recipients_amount] = I18n.t('.orders_validator.too_many_recipients') if @recipient_ids&.size > 20
       end
     
       def order_has_not_been_shipped
