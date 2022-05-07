@@ -7,7 +7,7 @@ module V1
     def create
       recipient = @school.recipients.new(permitted_params)
       if recipient.save
-        render json: recipient, status: 200, serializer: Serializer
+        render json: recipient, status: 200, serializer: RecipientsSerializer
       else
         render json: recipient.errors, status: 400
       end
@@ -15,7 +15,7 @@ module V1
 
     def update  
       if @recipient.update(permitted_params)
-        render json: { message: 'Recipient updated'}, status: 200, serializer: Serializer
+        render json: { message: 'Recipient updated'}, status: 200, serializer: RecipientsSerializer
       else
         render json: @recipient.errors, status: 400
       end
@@ -30,7 +30,7 @@ module V1
     end
 
     def index
-      render json: @school.recipients, status: 200, each_serializer: Serializer
+      render json: @school.recipients, status: 200, each_serializer: RecipientsSerializer
     end
 
     private

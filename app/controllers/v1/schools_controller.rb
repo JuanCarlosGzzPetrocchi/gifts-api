@@ -6,7 +6,7 @@ module V1
     def create
       school = School.new(permitted_params)
       if school.save
-        render json: school, status: 200, serializer: Serializer
+        render json: school, status: 200, serializer: SchoolsSerializer
       else
         render json: school.errors, status: 400
       end
@@ -14,7 +14,7 @@ module V1
 
     def update  
       if @school.update(permitted_params)
-        render json: { message: 'School updated'}, status: 200, serializer: Serializer
+        render json: { message: 'School updated'}, status: 200, serializer: SchoolsSerializer
       else
         render json: @school.errors, status: 400
       end
