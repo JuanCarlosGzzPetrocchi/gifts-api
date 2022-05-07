@@ -4,4 +4,3 @@ module V1
     attributes :gift_type
   end
 end
-

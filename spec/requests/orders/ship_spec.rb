@@ -17,7 +17,7 @@ describe 'PUT /schools/:school_id/orders/:order_id/ship' do
 
     order.reload
     expect(response.status).to eq(200)
-    expect(response.content_type).to eq("application/json; charset=utf-8")
+    expect(response.content_type).to eq('application/json; charset=utf-8')
     expect(order.workflow_status).to eq 'order_shipped'
   end
 end

@@ -17,7 +17,7 @@ describe 'PUT /schools/:school_id/orders/:order_id/cancel' do
 
     order.reload
     expect(response.status).to eq(200)
-    expect(response.content_type).to eq("application/json; charset=utf-8")
+    expect(response.content_type).to eq('application/json; charset=utf-8')
     expect(order.workflow_status).to eq 'order_cancelled'
   end
 
@@ -26,6 +26,6 @@ describe 'PUT /schools/:school_id/orders/:order_id/cancel' do
     put "/v1/schools/#{school.id}/orders/#{order.id}/cancel"
 
     expect(response.status).to eq(400)
-    expect(response.content_type).to eq("application/json; charset=utf-8")
+    expect(response.content_type).to eq('application/json; charset=utf-8')
   end
 end

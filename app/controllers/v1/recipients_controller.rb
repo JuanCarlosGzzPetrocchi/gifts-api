@@ -2,7 +2,7 @@ module V1
   class RecipientsController < ActionController::API
     before_action :find_school
     before_action :find_recipient, only: %i[update destroy]
-    rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     def create
       recipient = @school.recipients.new(permitted_params)
@@ -13,7 +13,7 @@ module V1
       end
     end
 
-    def update  
+    def update
       if @recipient.update(permitted_params)
         render json: @recipient, status: 200, serializer: RecipientsSerializer
       else
@@ -23,7 +23,7 @@ module V1
 
     def destroy
       if @recipient.destroy
-        render json: { message: I18n.t('.recipients_controller.recipient_deleted')}, status: 200
+        render json: { message: I18n.t('.recipients_controller.recipient_deleted') }, status: 200
       else
         render json: { errors: @recipient.errors }, status: 400
       end
@@ -48,7 +48,7 @@ module V1
     end
 
     def record_not_found
-      render json: { error: I18n.t('.record_not_found')}, status: 400
+      render json: { error: I18n.t('.record_not_found') }, status: 400
     end
   end
 end

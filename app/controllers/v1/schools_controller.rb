@@ -1,7 +1,7 @@
 module V1
   class SchoolsController < ActionController::API
     before_action :find_school, only: %i[update destroy]
-    rescue_from ActiveRecord::RecordNotFound, :with => :school_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :school_not_found
 
     def create
       school = School.new(permitted_params)
@@ -12,7 +12,7 @@ module V1
       end
     end
 
-    def update  
+    def update
       if @school.update(permitted_params)
         render json: @school, status: 200, serializer: SchoolsSerializer
       else
@@ -39,7 +39,7 @@ module V1
     end
 
     def school_not_found
-      render json: { error: I18n.t('.schools_controller.school_not_found')}, status: 400
+      render json: { error: I18n.t('.schools_controller.school_not_found') }, status: 400
     end
   end
 end

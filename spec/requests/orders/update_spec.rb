@@ -18,7 +18,7 @@ describe 'PATCH /schools/:school_id/orders/:id' do
 
     order.reload
     expect(response.status).to eq(200)
-    expect(response.content_type).to eq("application/json; charset=utf-8")
+    expect(response.content_type).to eq('application/json; charset=utf-8')
     expect(order.gifts.ids).to eq [Gift.third.id, Gift.fourth.id]
   end
 
@@ -26,8 +26,8 @@ describe 'PATCH /schools/:school_id/orders/:id' do
     order.update(workflow_status: :order_shipped)
     params = { recipient_ids: [recipient.id], gift_ids: [Gift.third.id, Gift.fourth.id] }
     patch "/v1/schools/#{school.id}/orders/#{order.id}", params: params
-  
+
     expect(response.status).to eq(400)
-    expect(response.content_type).to eq("application/json; charset=utf-8")
+    expect(response.content_type).to eq('application/json; charset=utf-8')
   end
 end

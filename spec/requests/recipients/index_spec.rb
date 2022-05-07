@@ -10,9 +10,9 @@ describe 'GET /schools/:school_id/recipients/:id' do
 
   scenario 'valid request' do
     get "/v1/schools/#{school.id}/recipients"
-    
+
     expect(response.status).to eq(200)
-    expect(response.content_type).to eq("application/json; charset=utf-8")
+    expect(response.content_type).to eq('application/json; charset=utf-8')
     expect(JSON.parse(response.body).size).to eq 2
   end
 end
