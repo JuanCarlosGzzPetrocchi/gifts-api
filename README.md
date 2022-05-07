@@ -1,19 +1,6 @@
 # gifts_api_test
 
-This is a skeleton of a rails app to serve as a starting point for the code challenge you are about to solve.
-
-Rails and Ruby versions: Defined on the Gemfile
-
-##Configuration
-
-The app has the following tools preinstalled and configured:
-  - Rspec
-  - Factorybot
-  - Faker
-  - Database Cleaner
-  - Shoulda Matchers
-
-#Getting Started
+# Getting Started
 
 After cloning the repo:
 ### Install the gems
@@ -50,3 +37,9 @@ You need to start docker-compose first
 ```
 bundle exec rails s -p 3027
 ```
+
+### Authorization/Authentication implementation
+The project does not take into consideration authorization when handling requests. However if I were to implement it I would require an authorization key as part of the header during requests. To implement this I would add environment variable called api_key. All controllers would inherit from a new AuthorizationsController which would have a before_action that validates the Authorization header key is the same as the api_key environment varibale.
+
+To implement authorization I would create a User model with email and password attributes (using Bcrypt gem for security) which would be required as part of the header when sending requests to the API. The AuthorizationsController would have a before_action that validate's the user's information. If login and logouts are required I would create an ApiKey model with a token attribute which belongs to a User and is created when logging in. That ApiKey is then used instead of the user's information to validate and authorize requests. When logging out (or after a certain amount of time has expired) the ApiKey will expire and a new one would have to be created.
+
