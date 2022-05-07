@@ -15,7 +15,7 @@ module V1
 
     def update  
       if @recipient.update(permitted_params)
-        render json: { message: 'Recipient updated'}, status: 200, serializer: RecipientsSerializer
+        render json: @recipient, status: 200, serializer: RecipientsSerializer
       else
         render json: @recipient.errors, status: 400
       end
@@ -44,7 +44,7 @@ module V1
     end
 
     def permitted_params
-      params.require(:recipient).permit(:name, :address)
+      params.permit(:name, :address)
     end
 
     def record_not_found

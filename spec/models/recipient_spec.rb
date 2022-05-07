@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Recipient, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should respond_to :name }
+  it { should respond_to :address }
+
+  it { should belong_to :school }
+  it { should have_many :orders }
 end

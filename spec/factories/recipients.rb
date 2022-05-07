@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :recipient do
-    name { "MyString" }
-    address { "MyString" }
-    school { nil }
+    name { Faker::Company.name }
+    address { Faker::Address.street_address }
   end
 end

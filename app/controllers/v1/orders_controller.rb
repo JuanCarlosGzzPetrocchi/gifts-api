@@ -63,7 +63,7 @@ module V1
     end
 
     def initialize_orders_validator
-      validator_params = permitted_params.merge(school_id: @school.id, order_id: @order.id)
+      validator_params = permitted_params.merge(school_id: @school.id, order_id: @order&.id)
       @order_validator = OrdersValidator.new(validator_params)
     end
 

@@ -14,7 +14,7 @@ module V1
 
     def update  
       if @school.update(permitted_params)
-        render json: { message: 'School updated'}, status: 200, serializer: SchoolsSerializer
+        render json: @school, status: 200, serializer: SchoolsSerializer
       else
         render json: @school.errors, status: 400
       end
@@ -35,7 +35,7 @@ module V1
     end
 
     def permitted_params
-      params.require(:school).permit(:name, :address)
+      params.permit(:name, :address)
     end
 
     def school_not_found
