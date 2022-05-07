@@ -22,7 +22,7 @@ module V1
 
     def destroy
       if @school.destroy
-        render json: { message: 'School deleted'}, status: 200
+        render json: { message: I18n.t('.schools_controller.school_deleted') }, status: 200
       else
         render json: @school.errors, status: 400
       end
@@ -39,7 +39,7 @@ module V1
     end
 
     def school_not_found
-      render json: { error: "School not found"}, status: 400
+      render json: { error: I18n.t('.schools_controller.school_not_found')}, status: 400
     end
   end
 end

@@ -32,7 +32,7 @@ module V1
     def cancel
       if @order_validator.cancel_errors.blank?
         @order.update(workflow_status: :order_cancelled)
-        render json: { message: 'Order canceled'}, status: 200
+        render json: { message: I18n.t('.orders_controller.order_cancelled')}, status: 200
       else
         render json: @order_validator.cancel_errors, status: 400
       end
@@ -42,7 +42,7 @@ module V1
       if @order_validator.ship_errors.blank?
         @order.update(workflow_status: :order_shipped)
         OrderMailer.order_shipped(order_id: @order.id)
-        render json: { message: 'Order shipped!'}, status: 200
+        render json: { message: I18n.t('.orders_controller.order_shipped')}, status: 200
       else
         render json: @order.ship_errors, status: 400
       end
@@ -80,7 +80,7 @@ module V1
     end
 
     def record_not_found
-      render json: { error: "Record not found"}, status: 400
+      render json: { error: I18n.t('.record_not_found')}, status: 400
     end
   end
 end

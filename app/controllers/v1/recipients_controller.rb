@@ -23,7 +23,7 @@ module V1
 
     def destroy
       if @recipient.destroy
-        render json: { message: 'Recipient deleted'}, status: 200
+        render json: { message: I18n.t('.recipients_controller.recipient_deleted')}, status: 200
       else
         render json: @recipient.errors, status: 400
       end
@@ -48,7 +48,7 @@ module V1
     end
 
     def record_not_found
-      render json: { error: "Record not found"}, status: 400
+      render json: { error: I18n.t('.record_not_found')}, status: 400
     end
   end
 end
