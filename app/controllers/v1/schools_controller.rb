@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module V1
+  # Schools controller
   class SchoolsController < ActionController::API
     before_action :find_school, only: %i[update destroy]
     rescue_from ActiveRecord::RecordNotFound, with: :school_not_found

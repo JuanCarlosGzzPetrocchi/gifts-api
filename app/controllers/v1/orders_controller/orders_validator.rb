@@ -39,19 +39,21 @@ module V1
       private
 
       def recipients_existence
-        if @school.recipients&.where(id: @recipient_ids)&.count != @recipient_ids&.count
-          @errors[:recipient_existence] = I18n.t('.orders_validator.non_existing_recipients')
-        end
+        return unless @school.recipients&.where(id: @recipient_ids)&.count != @recipient_ids&.count
+
+        @errors[:recipient_existence] = I18n.t('.orders_validator.non_existing_recipients')
       end
 
       def gifts_existence
-        if Gift.where(id: @gift_ids).count != @gift_ids&.count
-          @errors[:gift_existence] = I18n.t('.orders_validator.non_existing_gifts')
-        end
+        return unless Gift.where(id: @gift_ids).count != @gift_ids&.count
+
+        @errors[:gift_existence] = I18n.t('.orders_validator.non_existing_gifts')
       end
 
       def recipient_amount
-        @errors[:recipients_amount] = I18n.t('.orders_validator.too_many_recipients') if @recipient_ids&.size > 20
+        return if @recipient_ids.blank?
+
+        @errors[:recipients_amount] = I18n.t('.orders_validator.too_many_recipients') if @recipient_ids.size > 20
       end
 
       def order_has_not_been_shipped

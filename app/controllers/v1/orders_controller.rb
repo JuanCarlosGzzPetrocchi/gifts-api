@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module V1
+  # Orders controller
   class OrdersController < ActionController::API
     before_action :find_school
     before_action :find_order, only: %i[update cancel ship]

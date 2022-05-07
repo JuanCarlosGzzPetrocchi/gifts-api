@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module V1
+  # Recipients controller
   class RecipientsController < ActionController::API
     before_action :find_school
     before_action :find_recipient, only: %i[update destroy]

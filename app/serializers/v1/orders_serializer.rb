@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module V1
+  # Order model serializer
   class OrdersSerializer < ActiveModel::Serializer
     attributes :workflow_status, :recipients, :gifts
 
