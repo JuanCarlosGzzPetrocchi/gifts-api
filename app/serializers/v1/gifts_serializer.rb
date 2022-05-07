@@ -3,6 +3,6 @@
 module V1
   # GiftsSerializer
   class GiftsSerializer < ActiveModel::Serializer
-    attributes :gift_type
+    attributes :id, :gift_type
   end
 end

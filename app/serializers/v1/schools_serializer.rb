@@ -3,6 +3,6 @@
 module V1
   # SchoolsSerializer
   class SchoolsSerializer < ActiveModel::Serializer
-    attributes :name, :address
+    attributes :id, :name, :address
   end
 end

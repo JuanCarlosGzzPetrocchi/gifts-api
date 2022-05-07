@@ -3,7 +3,7 @@
 module V1
   # Order model serializer
   class OrdersSerializer < ActiveModel::Serializer
-    attributes :workflow_status, :recipients, :gifts
+    attributes :id, :workflow_status, :recipients, :gifts
 
     def workflow_status
       I18n.t(".activerecord.attributes.order.workflow_status.#{object.workflow_status}")

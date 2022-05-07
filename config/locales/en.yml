@@ -43,3 +43,4 @@ en:
     non_existing_gifts: Gift(s) not found. Verify ids.
     too_many_recipients: An order cannot have more than 20 recipients.
     order_shipped: Order has already been shipped.
+  record_not_found: Record(s) not found.
