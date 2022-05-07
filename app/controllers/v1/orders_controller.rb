@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module V1
   class OrdersController < ActionController::API
     before_action :find_school

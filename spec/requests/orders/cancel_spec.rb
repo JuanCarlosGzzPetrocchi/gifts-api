@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 describe 'PUT /schools/:school_id/orders/:order_id/cancel' do
   let(:school) do

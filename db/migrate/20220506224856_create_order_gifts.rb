@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateOrderGifts < ActiveRecord::Migration[6.1]
   def change
     create_table :order_gifts do |t|

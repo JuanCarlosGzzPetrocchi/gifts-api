@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 describe 'PATCH /schools/:id' do
   let(:school) do

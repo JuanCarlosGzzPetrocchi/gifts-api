@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 describe 'POST /schools/:school_id/orders' do
   let(:school) do
