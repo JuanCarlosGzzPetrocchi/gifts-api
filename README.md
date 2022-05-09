@@ -37,6 +37,13 @@ You need to start docker-compose first
 ```
 bundle exec rails s -p 3027
 ```
+### API Documentation
+The API documentation can be read at:
+https://documenter.getpostman.com/view/8181241/Uyxeonsk
+
+The Postman collection of API requests can be downloaded as a json file here:
+https://drive.google.com/file/d/149RZpPnaE5jf8NRGx6lgNXWei6Rohe0m/view?usp=sharing
+To import the requests into Postman simply click on Import and select the json file.
 
 ### Authorization/Authentication implementation
 The project does not take into consideration authorization when handling requests. However if I were to implement it I would require an authorization key as part of the header during requests. To implement this I would add environment variable called api_key. All controllers would inherit from a new AuthorizationsController which would have a before_action that validates the Authorization header key is the same as the api_key environment varibale.
