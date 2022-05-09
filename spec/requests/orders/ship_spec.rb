@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-describe 'PUT /schools/:school_id/orders/:order_id/ship' do
+describe 'PATCH /schools/:school_id/orders/:order_id/ship' do
   let(:school) do
     create :school
   end
@@ -15,7 +15,7 @@ describe 'PUT /schools/:school_id/orders/:order_id/ship' do
   end
 
   scenario 'valid request' do
-    put "/v1/schools/#{school.id}/orders/#{order.id}/ship"
+    patch "/v1/schools/#{school.id}/orders/#{order.id}/ship"
 
     order.reload
     expect(response.status).to eq(200)

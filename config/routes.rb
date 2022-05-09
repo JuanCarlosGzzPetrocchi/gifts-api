@@ -7,8 +7,8 @@ Rails.application.routes.draw do
       resources :orders, param: :order_id, except: %i[destroy]
       # separate orders actions so that all actions receive an order's id as params[:order_id] instead of params[:id]
       resources :orders, only: [] do
-        put :ship
-        put :cancel
+        patch :ship
+        patch :cancel
       end
     end
   end
