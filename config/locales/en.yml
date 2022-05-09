@@ -35,9 +35,6 @@ en:
     school_deleted: School deleted.
   recipients_controller:
     recipient_deleted: Recipient deleted.
-  orders_controller:
-    order_cancelled: Order cancelled.
-    order_shipped: Order shipped.
   orders_validator:
     non_existing_recipients: Recipient(s) not found. Verify ids.
     non_existing_gifts: Gift(s) not found. Verify ids.
