@@ -11,5 +11,6 @@ Rails.application.routes.draw do
         patch :cancel
       end
     end
+    resources :gifts, only: %i[index]
   end
 end
