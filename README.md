@@ -30,6 +30,11 @@ CREATE DATABASE gifts_api_test;
 bundle exec rake db:migrate
 ```
 
+### Seed the database
+```
+bundle exec rake db:seed
+```
+
 ### Start the server
 
 You need to start docker-compose first
