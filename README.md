@@ -1,4 +1,4 @@
-# gifts_api_test
+# Gifts API
 
 # Getting Started
 
